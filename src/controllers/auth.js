@@ -4,10 +4,10 @@ import bcryptjs from 'bcryptjs'
 
 export const register = async (req, res) => {
     try {
-        const { email, password, name, avatar } = req.body;
+        const { email, password } = req.body;
         const { error } = registerValidator.validate(req.body, { abortEarly: false });
         if (error) {
-            const messages = error.detail.map(item => item.messages);
+            const messages = error.details.map(item => item.message);
             return res.status(500).json(messages);
         }
 
