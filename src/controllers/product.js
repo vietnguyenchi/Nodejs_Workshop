@@ -1,15 +1,16 @@
-import Product from '../models/Product';
+import slugify from "slugify";
+import Product from "../models/Product";
 
 export const create = async (req, res) => {
     try {
 
-        const product = await Product.create(req.body);
+        const product = await Product.create({ ...req.body, slug: slugify(req.body.name, "-") });
 
         return res.status(201).json({ message: 'Product created successfully', data: product });
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Error while creating product!", error: error });
+        return res.status(500).json({ message: "Create product failed!", error: error });
 
     }
 }
@@ -25,7 +26,7 @@ export const getAll = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Error while getting products!", error: error });
+        return res.status(500).json({ message: "Get products failed!", error: error });
 
     }
 }
@@ -39,7 +40,7 @@ export const getProductById = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Error while getting product!", error: error });
+        return res.status(500).json({ message: "Get product failed!", error: error });
 
     }
 }
@@ -53,7 +54,7 @@ export const deleteProductById = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Error while deletting product!", error: error });
+        return res.status(500).json({ message: "Delete product Failed!", error: error });
 
     }
 }
@@ -67,7 +68,7 @@ export const updateProductById = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Error while updatting product!", error: error });
+        return res.status(500).json({ message: "Update product failed!", error: error });
 
     }
 }

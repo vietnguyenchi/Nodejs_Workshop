@@ -8,12 +8,13 @@ const productSchema = new mongoose.Schema({
     },
     slug: {
         type: String,
-        unique: true
+        unique: true,
+        lowercase: true
     },
-    cateogry: {
+    category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Category",
-        // required: true
+        required: true
     },
     price: {
         type: Number,
