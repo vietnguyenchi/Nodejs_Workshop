@@ -26,3 +26,18 @@ export const registerValidator = Joi.object({
         "string.uri": "Avatar must be a valid URL",
     }),
 });
+
+export const loginValidator = Joi.object({
+    email: Joi.string().email().required().messages({
+        "any.required": "Email is required",
+        "string.empty": "Email is required",
+        "string.email": "Email not valid",
+    }),
+
+    password: Joi.string().min(6).max(30).required().messages({
+        "any.required": "Password is required",
+        "string.empty": "Password cannot be empty",
+        "string.min": "Password must be at least #{limit} characters",
+        "string.max": "Password cannot exceed #{limit} characters",
+    }),
+})

@@ -13,7 +13,7 @@ export const create = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Create category failed", error });
+        return res.status(500).json({ message: error.message });
 
     }
 };
@@ -28,7 +28,7 @@ export const getAll = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Get categories faild", error });
+        return res.status(500).json({ message: error.message });
 
     }
 };
@@ -44,7 +44,7 @@ export const getCategoryById = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Get categories faild", error });
+        return res.status(500).json({ message: error.message });
 
     }
 };
@@ -57,7 +57,7 @@ export const deleteCategoryById = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Delete category faild", error });
+        return res.status(500).json({ message: error.message });
 
     }
 };
@@ -70,7 +70,7 @@ export const updateCategoryById = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Update category faild", error });
+        return res.status(500).json({ message: error.message });
 
     }
 };

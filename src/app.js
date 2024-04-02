@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import productRouter from "./routers/product";
 import categoryRouter from "./routers/category";
+import cartRouter from "./routers/cart";
 
 
 // Middleware
@@ -22,5 +23,6 @@ connectDB(process.env.DB_URI);
 app.use("/api/v1", authRouter);
 app.use("/api/v1", productRouter);
 app.use("/api/v1", categoryRouter);
+app.use("/api/v1", cartRouter);
 
 export const viteNodeApp = app;

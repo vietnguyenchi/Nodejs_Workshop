@@ -10,7 +10,7 @@ export const create = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Create product failed!", error: error });
+        return res.status(500).json({ message: error.message });
 
     }
 }
@@ -26,7 +26,7 @@ export const getAll = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Get products failed!", error: error });
+        return res.status(500).json({ message: error.message });
 
     }
 }
@@ -40,7 +40,7 @@ export const getProductById = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Get product failed!", error: error });
+        return res.status(500).json({ message: error.message });
 
     }
 }
@@ -54,7 +54,7 @@ export const deleteProductById = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Delete product Failed!", error: error });
+        return res.status(500).json({ message: error.message });
 
     }
 }
@@ -68,7 +68,7 @@ export const updateProductById = async (req, res) => {
 
     } catch (error) {
 
-        return res.status(500).json({ message: "Update product failed!", error: error });
+        return res.status(500).json({ message: error.message });
 
     }
 }
