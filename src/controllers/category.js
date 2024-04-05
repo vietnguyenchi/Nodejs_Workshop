@@ -49,6 +49,7 @@ export const getCategoryById = async (req, res) => {
     }
 };
 
+// Hard delete
 export const deleteCategoryById = async (req, res) => {
     try {
         const category = await Category.findByIdAndDelete(req.params.id);
@@ -61,6 +62,20 @@ export const deleteCategoryById = async (req, res) => {
 
     }
 };
+
+// Soft delete
+export const softDeleteCategoryById = async (req, res) => {
+    try {
+        const category = await Category.findByIdAndUpdate(req.params.id, { isHidden: true }, { new: true });
+
+        return res.status(200).json({ message: "Update category successfully", category });
+
+    } catch (error) {
+
+        return res.status(500).json({ message: error.message });
+
+    }
+}
 
 export const updateCategoryById = async (req, res) => {
     try {

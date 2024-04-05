@@ -9,6 +9,10 @@ const categorySchema = new mongoose.Schema(
             type: String,
             unique: true,
             lowercase: true
+        },
+        isHidden: {
+            type: Boolean,
+            default: false
         }
     },
     {

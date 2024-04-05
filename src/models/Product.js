@@ -16,6 +16,10 @@ const productSchema = new mongoose.Schema({
         ref: "Category",
         required: true
     },
+    hide: {
+        type: Boolean,
+        default: false
+    },
     price: {
         type: Number,
         required: true,
